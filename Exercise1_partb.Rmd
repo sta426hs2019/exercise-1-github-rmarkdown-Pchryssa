@@ -1,0 +1,56 @@
+---
+title: "STA426 Week 1 Exercise (part b)"
+author: "Chrysa Papadopoulou"
+date: "Semptember 21, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## _Sampling_
+
+We sample 100 values from a log-normal distribution with mean 1 and standard deviation 0.25: 
+```{r}
+dis<-rlnorm(100, meanlog = 1, sdlog = 0.25)
+print(dis)
+```
+
+## _Histograms_
+
+We create a histogram of the distribution with 10 breaks:
+
+```{r, echo=TRUE}
+hist(dis, 
+     main="Histogram for log-normal distribution", 
+     xlab="Distribution", 
+     border="blue", 
+     col="green",
+     las=1, 
+     breaks=10)
+```
+
+We now plot the histogram of the distribution on the log scale with 10 breaks:
+
+```{r,echo=TRUE}
+hist(log(dis), 
+     main="Histogram for log-normal distribution in log scale", 
+     xlab="Distribution", 
+     border="blue", 
+     col="green",
+     las=1, 
+     breaks=10)
+```
+
+
+```{r,echo=TRUE}
+mean<-mean(dis)
+variance<-var(dis)
+```
+
+The Mean of the sample is mean = `r mean` and the variance is variance =`r variance`. Or using the paste command:
+
+```{r,echo=TRUE}
+print(paste("The mean of the samples",mean,"and the sample variance is",variance))
+```
